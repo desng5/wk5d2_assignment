@@ -91,3 +91,5 @@ RENAME COLUMN transaction_id TO sale_id;
 
 ALTER TABLE concession 
 ADD COLUMN drink VARCHAR(15);
+
+ALTER TABLE ticket RENAME COLUMN ticket_cost TO price;
