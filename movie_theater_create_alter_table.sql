@@ -68,3 +68,26 @@ CREATE TABLE ticket(
     FOREIGN KEY (customer_id)
         REFERENCES customer(customer_id)
 );
+
+
+CREATE TABLE customer_concession (
+    transaction_id SERIAL PRIMARY KEY,
+    customer_id INTEGER,
+    concession_id INTEGER,
+    FOREIGN KEY (customer_id)
+        REFERENCES customer(customer_id),
+    FOREIGN KEY (concession_id)
+        REFERENCES concession(concession_id)
+);
+
+SELECT *
+FROM customer;
+
+ALTER TABLE customer
+RENAME COLUMN customer_id TO patreon_id;
+
+ALTER TABLE customer_concession 
+RENAME COLUMN transaction_id TO sale_id;
+
+ALTER TABLE concession 
+ADD COLUMN drink VARCHAR(15);
